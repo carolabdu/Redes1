@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Site sobre Kubernetes</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header>
+    <h1>Kubernetes</h1>
+    <p>Carolina Abdu, Pedro Glaser, Rafaella Lenzi</p>
+    <p>Redes de Computadores I - 2024.1</p>
+  </header>
+  <nav>
+    <ul>
+      <li><a href="#introducao">Introdução</a></li>
+      <li><a href="#componentes">Componentes</a></li>
+      <li><a href="#vantagens">Vantagens</a></li>
+      <li><a href="#desafios">Desafios</a></li>
+      <li><a href="#referencias">Referências</a></li>
+      <li><a href="#perguntas">Perguntas</a></li>
+    </ul>
+  </nav>
+  <main>
+    <section id="introducao">
+      <h2>Introdução</h2>
+      <h3> O que é? </h3>
+      <p>É um sistema de código aberto que automatiza a implantação, escalonamento e gerenciamento de aplicativos em  containeres.</p>
+      <h3> Para que serve? </h3>
+      <p> Ele ajuda a controlar a alocação de recursos e gerenciamento de tráfego para aplicativos em nuvem. É possível criar aplicativos em ambientes virtuais .Gerência um cluster dividido por um master que mantém no estado desejado e os node/workers que são responsáveis pela execução da aplicação 
+      </p>
+    </section>
+    <section id="componentes">
+      <h2>Componentes</h2>
+      <h3>Camada de gerenciamento</h3>
+      <p>Tomam decisões globais sobre o cluster, detectam e respondem aos eventos do cluster</p>
+      <p><strong>Kube-apiserver:</strong> é o núcleo do Kubernetes. Ele desempenha um papel fundamental ao gerenciar a gravação no banco de dados, garantindo a validação e configuração adequadas dos dados para os objetos da API, como pods, serviços e controladores de replicação. Além disso, ele facilita o balanceamento de carga e tráfego entre as instâncias, fornecendo uma interface centralizada para o cluster, permitindo a interação entre todos os componentes do sistema.
+      </p>
+      <p><strong>Kube-scheduler:</strong> é encarregado de distribuir os pods nos nós para execução. Ele leva em consideração as especificações de afinidade e anti-afinidade, além de analisar fatores como interferências de cargas de trabalho, prazos e outros critérios. Esse processo permite identificar o nó mais adequado para alocar o container, levando em conta a disponibilidade e otimizando os recursos. Suas decisões são baseadas em requisitos individuais e coletivos de recursos, restrições de hardware e software, políticas, afinidades e anti-afinidades, localização de dados, interferências entre cargas de trabalho e prazos.</p>
+      <p><strong>ETCD</strong>é o tipo de armazenamento. Responsável pelo armazenamento de dados relacionados ao cluster. É um aramá e ameno do tipo chave valor consistente e de alta disponibilidade, usado como armazenamento de apoio do kubernetes. </p>
+      <p><strong>Kube-controler-manager:</strong>executa os processos do controlador. Apesar de cada controlador estar em um processo separado, eles são complicados e executam em um único processo . Controladores: de nó, de jobs, de endpointslice, service account.</p>
+      <p><strong>Cloud-controler-manager:</strong>executa os controladores kubernets que estão na nuvem. É possível gerenciar o controle da nuvem, escalonando horizontalmente e garantindo a interação com o cluster. É possível gerenciar os nós. Permite vincular o cluster na API do seu provedor de nuvem e separar os componentes que apenas interagem com seu cluster. Executa apenas controladores que são específicos para seu provedor de nuvem. Controladores: de nó, de rota, de serviço. </p>
+      <h3>Componetes de nó</h3>
+      <p>componentes são executados em todos os nós, mantendo os pods em execução e fornecendo o ambiente de execução do kubernetes.
+      </p>
+      <p><strong>Kubelet:</strong>é um dos componentes cruciais dos nós em um cluster Kubernetes. Ele garante a execução eficiente de todos os containers atribuídos a um pod específico. No entanto, vale ressaltar que o Kubelet não gerencia containers que não foram criados pelo próprio Kubernetes, concentrando-se exclusivamente na gestão e supervisão dos containers que fazem parte da estrutura Kubernetes.</p>
+      <p><strong>Kube-proxy:</strong>é um proxy de rede que opera em cada nó do cluster Kubernetes. Ele desempenha um papel fundamental na implementação do conceito de serviço dentro do Kubernetes, gerenciando e mantendo regras de rede nos nós. Essas regras permitem que os pods se comuniquem eficientemente com sessões de rede dentro ou fora do cluster. Além disso, o Kube-proxy aproveita a camada de filtragem de pacotes do sistema operacional, se disponível, para otimizar a conectividade de rede e garantir uma comunicação confiável entre os componentes do cluster.</p>
+      <p><strong>Container Runtime:</strong> é responsável pela execução dos containers dentro do ambiente Kubernetes. Ele oferece suporte a uma variedade de agentes de execução, como Docker, Containers e CRI-O, proporcionando flexibilidade na escolha da tecnologia de execução mais adequada para as necessidades específicas do cluster. Essa camada de abstração entre o Kubernetes e os containers permite uma administração eficiente e escalável dos recursos de computação.</p>
+    </section>
+    <section id="vantagens">
+      <h2>Vantagens</h2>
+      <p><strong>Orquestração:</strong>Uma das principais vantagens dos Kubernetes é a capacidade de orquestrar e gerenciar o armazenamento de forma flexível. Os usuários podem definir estratégias de armazenamento tanto localmente quanto em ambientes multi-cloud, permitindo uma abordagem adaptável às necessidades de armazenamento dos aplicativos.</p>
+      <p><strong>Otimização dos recursos:</strong>Os Kubernetes possibilitam uma otimização eficiente dos recursos de computação. Os clusters de nós são aproveitados para executar tarefas nos containers de maneira inteligente, atribuindo recursos de memória conforme a demanda, garantindo assim uma utilização mais eficaz e escalável dos recursos disponíveis.</p>
+      <p><strong>Autocorreção:</strong>Uma das funcionalidades poderosas dos Kubernetes é sua capacidade de autocorreção em casos de falhas. Se um container apresentar problemas, a ferramenta automaticamente reinicia o container afetado e, em caso de erros mais graves, substitui o container por uma nova instância funcional, garantindo a continuidade das operações.</p>
+      <p><strong>Automatização:</strong>Os Kubernetes oferecem recursos avançados de automatização. É possível programar a criação automática de containers de acordo com as configurações estabelecidas. Além disso, a plataforma permite a eliminação automática de containers obsoletos e a concentração de recursos em novos containers conforme necessário, simplificando a administração e garantindo uma operação eficiente do ambiente.</p>
+      <p><strong>Segurança da Informação:</strong>Os Kubernetes fornecem recursos robustos para garantir a segurança da informação. É possível armazenar e gerenciar informações sigilosas de forma segura, utilizando medidas como senhas, tokens e chaves de criptografia. Isso garante a integridade e a confidencialidade dos dados, mantendo um ambiente seguro para as operações do sistema.</p>
+    </section>
+    <section id="desafios">
+      <h2>Desafios</h2>
+      <p>texto</p>
+    </section>
+    <section id="referencias">
+      <h2>Referências</h2>
+      
+      <b>[1]<a href="https://cloud.google.com/kubernetes-engine?utm_source=google&utm_medium=cpc&utm_campaign=latam-BR-all-pt-dr-BKWS-all-all-trial-e-dr-1707800-LUAC0016140&utm_content=text-ad-none-any-DEV_c-CRE_542427311450-ADGP_Hybrid+%7C+BKWS+-+EXA+%7C+Txt_Containers-Kubernetes-KWID_43700071228559692-kwd-335784956140&utm_term=KW_kubernetes+google-ST_kubernetes+google&gad_source=1&gclid=CjwKCAjw26KxBhBDEiwAu6KXt-yVRlJnSs9QA9RYLcJs2ECdGTuD-79X_iaMzByim81cbPpsgRkckxoCrtAQAvD_BwE&gclsrc=aw.ds">Google Cloud</a></b>
+      <b>[2] <a href="http://ww25.kubernets.io/?subid1=20240507-0323-15d8-9d82-69ef5b495ac6"> Kubernetes</a></b>
+      <b>[3] <a href="https://rockcontent.com/br/blog/kubernetes/"> rockcontent</a></b>
+      <b>[4]<a href="https://www.redhat.com/pt-br/topics/containers/what-is-kubernetes">redhat</a></b>
+      <b>[5]<a href="https://www.ibm.com/topics/kubernetes">IBM</a></b>
+
+    </section>
+    <section id="perguntas">
+      <h2>Perguntas</h2>
+      <!-- Conteúdo da seção de Perguntas -->
+    </section>
+  </main>
+  <script src="scripts.js"></script>
+</body>
+</html>

@@ -1,0 +1,103 @@
+/* Paleta de cores */
+:root {
+  --cor-primaria: #265DA6; /* Azul principal */
+  --cor-secundaria: #2F4C73; /* Azul secundário */
+  --cor-escura: #1E2D40; /* Azul escuro para texto */
+  --cor-destaque: #5E92BF; /* Azul para destaque */
+  --cor-fundo-site: #CEE4F2; /* Cor de fundo do site */
+  --cor-fundo-secao: #fff; /* Cor de fundo das caixas de texto */
+}
+
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: var(--cor-fundo-site); /* Cor de fundo do site */
+  color: var(--cor-escura); /* Cor do texto principal */
+}
+
+/* Estilo para links */
+a {
+  color: var(--cor-primaria); /* Cor dos links */
+  text-decoration: none; /* Remove o sublinhado */
+  transition: color 0.3s ease; /* Transição suave de cor ao passar o mouse */
+}
+
+a:hover {
+  color: var(--cor-destaque); /* Cor ao passar o mouse */
+}
+
+/* Estilo para cabeçalho */
+header {
+  background-color: var(--cor-primaria); /* Cor de fundo do cabeçalho */
+  color: #fff; /* Cor do texto do cabeçalho */
+  padding: 20px;
+  text-align: center;
+  margin-bottom: 20px; /* Margem inferior para separar do conteúdo */
+}
+
+/* Estilo para a navegação */
+nav {
+  background-color: var(--cor-secundaria); /* Cor de fundo da navegação */
+  text-align: center; /* Centraliza os itens da navegação */
+  padding: 10px 0; /* Espaçamento interno para os itens da navegação */
+}
+
+nav ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+nav ul li {
+  display: inline-block; /* Exibe os itens da navegação em linha */
+  margin-right: 20px;
+}
+
+nav ul li a {
+  color: #fff; /* Cor dos itens da navegação */
+  text-decoration: none; /* Remove o sublinhado */
+  padding: 10px;
+}
+
+/* Estilo para o conteúdo principal */
+main {
+  margin: 0 auto; /* Centraliza o conteúdo na página */
+  max-width: 800px; /* Largura máxima do conteúdo */
+  padding: 20px;
+  background-color: var(--cor-fundo-site); /* Cor de fundo do conteúdo */
+}
+
+/* Estilo para as seções */
+section {
+  margin-bottom: 40px; /* Margem inferior para separar as seções */
+  text-align: justify; /* Justifica o texto */
+  padding: 20px; /* Espaçamento interno para as seções */
+  border: 1px solid var(--cor-secundaria); /* Borda */
+  background-color: var(--cor-fundo-secao); /* Cor de fundo das seções */
+}
+
+/* Estilo para os títulos das seções */
+section h2 {
+  margin-bottom: 20px; /* Margem inferior para separar o título do conteúdo */
+  color: var(--cor-destaque); /* Cor do título */
+}
+
+/* Estilo para links externos */
+a.external {
+  color: var(--cor-destaque); /* Cor para links externos */
+}
+
+a.external:hover {
+  color: var(--cor-primaria); /* Cor ao passar o mouse sobre links externos */
+}
+
+/* Estilo para h3 */
+h3 {
+  font-size: 1.5em; /* Tamanho do texto */
+  color: var(--cor-secundaria); /* Cor do texto */
+  margin-bottom: 10px; /* Espaçamento inferior */
+}
+
+
+
